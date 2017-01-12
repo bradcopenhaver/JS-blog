@@ -14,7 +14,7 @@ export default Ember.Route.extend({
         return post.destroyRecord();
       });
         this.transitionTo('index');
-      };
+      }
     },
     update(post, params) {
       Object.keys(params).forEach(function(key) {
@@ -36,6 +36,15 @@ export default Ember.Route.extend({
     },
     destroyComment(comment) {
       comment.destroyRecord();
+      this.transitionTo('index');
+    },
+    updateComment(comment, params) {
+      Object.keys(params).forEach(function(key) {
+        if(params[key]!==undefined) {
+          comment.set(key,params[key]);
+        }
+      });
+      comment.save();
       this.transitionTo('index');
     }
   }
