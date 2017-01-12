@@ -1,3 +1,5 @@
 <h1>{{model.title}}</h1>
 <h4>by {{model.author}}</h4>
 <p>{{model.text}}</p>
+<button {{action 'delete' model}}>Delete</button>
+<button {{action 'update' post}}>Edit</button>
