@@ -7,9 +7,14 @@ export default Ember.Route.extend({
   actions: {
     delete(post) {
       if (confirm('Are your sure you want to delete')) {
-        post.destroyRecord();
+        var comment_sec = post.get('comments').map(function(comment) {
+        return comment.destroyRecord();
+      });
+      Ember.RSVP.all(comment_sec).then(function() {
+        return post.destroyRecord();
+      });
         this.transitionTo('index');
-      }
+      };
     },
     update(post, params) {
       Object.keys(params).forEach(function(key) {
@@ -27,6 +32,10 @@ export default Ember.Route.extend({
       newComment.save().then(function() {
         return post.save();
       });
+      this.transitionTo('index');
+    },
+    destroyComment(comment) {
+      comment.destroyRecord();
       this.transitionTo('index');
     }
   }
