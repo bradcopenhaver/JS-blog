@@ -3,3 +3,11 @@
 <p>{{model.text}}</p>
 <button {{action 'delete' model}}>Delete</button>
 {{update-post post=model update='update'}}
+
+<ul>
+  {{#each model.comments as |comment|}}
+    {{comment-tile comment=comment}}
+  {{/each}}
+</ul>
+
+{{new-comment saveComment="saveComment" post=model}}
