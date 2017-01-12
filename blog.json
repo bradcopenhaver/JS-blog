@@ -1,0 +1,14 @@
+{ "posts": [{
+    "author": "Veruca Salt",
+    "title": "San Francisco",
+    "text": "Estate"
+  }, {
+    "author": "Mike Teavee",
+    "title": "Seattle",
+    "text": "Condo"
+  }, {
+    "author": "Violet Beauregarde",
+    "title": "Portland",
+    "text": "Apartment"
+  }]
+}
