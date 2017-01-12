@@ -2,4 +2,4 @@
 <h4>by {{model.author}}</h4>
 <p>{{model.text}}</p>
 <button {{action 'delete' model}}>Delete</button>
-<button {{action 'update' post}}>Edit</button>
+{{update-post post=model update='update'}}
